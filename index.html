@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,28 @@
       background: #f4f6f8;
     }
 
-    header {
+    .site-header {
+      margin: 0;
+      padding: 0;
+      text-align: center;
       background: #111827;
       color: white;
-      padding: 20px;
-      text-align: center;
+    }
+
+    .header-images {
+      display: flex;
+      width: 100%;
+      height: 250px;
+      /* adjust as needed */
+    }
+
+    .header-images img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
 
     .container {
@@ -34,7 +52,7 @@
     .cab-card {
       background: white;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
@@ -75,102 +93,199 @@
       border-radius: 5px;
       font-weight: bold;
     }
+
+    .image-slider {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .image-slider img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: none;
+    }
+
+    .image-slider img.active {
+      display: block;
+    }
+
+    .image-slider .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 50%;
+    }
+
+    .image-slider .left {
+      left: 8px;
+    }
+
+    .image-slider .right {
+      right: 8px;
+    }
   </style>
 </head>
+<script>
+  function nextImage(button) {
+    const slider = button.parentElement;
+    const slides = slider.querySelectorAll('.slide');
+    let index = [...slides].findIndex(slide => slide.classList.contains('active'));
+
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  function prevImage(button) {
+    const slider = button.parentElement;
+    const slides = slider.querySelectorAll('.slide');
+    let index = [...slides].findIndex(slide => slide.classList.contains('active'));
+
+    slides[index].classList.remove('active');
+    index = (index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+  }
+</script>
+
 <body>
 
-<header>
-  <h1>Shama Cab Tours And Travels</h1>
-  <p>Rent a Car | Driver Included • Local • Outstation • Airport</p>
-</header>
-
-<div class="container">
-  <h2>Available Cab Options</h2>
-
-  <div class="cab-grid">
-
-    <div class="cab-card">
-      <img src="images/sedan.jpg" alt="Sedan Cab">
-      <div class="cab-content">
-        <h3>Sedan (Dzire / City)</h3>
-        <div class="features">AC • 4 Passengers • Driver Included</div>
-        <div class="price">₹12/km | ₹2,500/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
+  <header class="site-header">
+    <div class="header-images">
+      <img src="images/logo.jpg" alt="CityRide Cab Service">
+      <img src="images/logo2.jpg" alt="CityRide Cab Service">
     </div>
+    <p>Rent a Car | Driver Included • Local • Outstation • Airport</p>
+  </header>
 
-    <div class="cab-card">
-      <img src="images/suv.jpg" alt="SUV Cab">
-      <div class="cab-content">
-        <h3>SUV (Creta)</h3>
-        <div class="features">AC • 5 Passengers • Luggage Space</div>
-        <div class="price">₹16/km | ₹3,200/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
+  <div class="container">
+    <h2>Available Cab Options</h2>
 
-    <div class="cab-card">
-      <img src="images/hatchback.jpg" alt="Hatchback Cab">
-      <div class="cab-content">
-        <h3>Hatchback (Swift)</h3>
-        <div class="features">AC • City Ride • Budget Friendly</div>
-        <div class="price">₹10/km | ₹2,000/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
+    <div class="cab-grid">
 
-    <div class="cab-card">
-      <img src="images/innova.jpg" alt="Innova Cab">
-      <div class="cab-content">
-        <h3>Innova Crysta</h3>
-        <div class="features">AC • 7 Passengers • Outstation</div>
-        <div class="price">₹18/km | ₹3,800/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
+      <div class="cab-card">
+        <div class="image-slider">
+          <button class="nav left" onclick="prevImage(this)">&#10094;</button>
 
-    <div class="cab-card">
-      <img src="images/tempo.jpg" alt="Tempo Traveller">
-      <div class="cab-content">
-        <h3>Tempo Traveller</h3>
-        <div class="features">12–17 Seater • Group Travel</div>
-        <div class="price">₹25/km | ₹6,000/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
+          <img src="images/sedan/1.jpg" class="slide active">
+          <img src="images/sedan/2.jpg" class="slide">
+          <img src="images/sedan/3.jpg" class="slide">
+          <img src="images/sedan/4.jpg" class="slide">
 
-    <div class="cab-card">
-      <img src="images/luxury.jpg" alt="Luxury Cab">
-      <div class="cab-content">
-        <h3>Luxury (Camry)</h3>
-        <div class="features">Premium • Business Travel</div>
-        <div class="price">₹30/km | ₹7,000/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
-    <div class="cab-card">
-      <img src="images/tempo.jpg" alt="Tempo Traveller">
-      <div class="cab-content">
-        <h3>Tempo Traveller</h3>
-        <div class="features">12–17 Seater • Group Travel</div>
-        <div class="price">₹25/km | ₹6,000/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
-      </div>
-    </div>
+          <button class="nav right" onclick="nextImage(this)">&#10095;</button>
+        </div>
 
-    <div class="cab-card">
-      <img src="images/luxury.jpg" alt="Luxury Cab">
-      <div class="cab-content">
-        <h3>Luxury (Camry)</h3>
-        <div class="features">Premium • Business Travel</div>
-        <div class="price">₹30/km | ₹7,000/day</div>
-        <a class="whatsapp-btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
+        <div class="cab-content">
+          <h3>Sedan (Dzire / City)</h3>
+          <div class="features">AC • 4 Passengers • Driver Included</div>
+          <div class="price">₹12/km | ₹2,500/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">
+            Book on WhatsApp
+          </a>
+        </div>
       </div>
-    </div>
 
+      <div class="cab-card">
+        <div class="image-slider">
+          <button class="nav left" onclick="prevImage(this)">&#10094;</button>
+          <img src="images/sedan/3.jpg" class="slide">
+          <img src="images/sedan/4.jpg" class="slide">
+          <img src="images/sedan/1.jpg" class="slide active">
+          <img src="images/sedan/2.jpg" class="slide">
+          
+
+          <button class="nav right" onclick="nextImage(this)">&#10095;</button>
+        </div>
+
+        <div class="cab-content">
+          <h3>Sedan (Dzire / City)</h3>
+          <div class="features">AC • 4 Passengers • Driver Included</div>
+          <div class="price">₹12/km | ₹2,500/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">
+            Book on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/suv.jpg" alt="SUV Cab">
+        <div class="cab-content">
+          <h3>SUV (Creta)</h3>
+          <div class="features">AC • 5 Passengers • Luggage Space</div>
+          <div class="price">₹16/km | ₹3,200/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/hatchback.jpg" alt="Hatchback Cab">
+        <div class="cab-content">
+          <h3>Hatchback (Swift)</h3>
+          <div class="features">AC • City Ride • Budget Friendly</div>
+          <div class="price">₹10/km | ₹2,000/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/innova.jpg" alt="Innova Cab">
+        <div class="cab-content">
+          <h3>Innova Crysta</h3>
+          <div class="features">AC • 7 Passengers • Outstation</div>
+          <div class="price">₹18/km | ₹3,800/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/tempo.jpg" alt="Tempo Traveller">
+        <div class="cab-content">
+          <h3>Tempo Traveller</h3>
+          <div class="features">12–17 Seater • Group Travel</div>
+          <div class="price">₹25/km | ₹6,000/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/luxury.jpg" alt="Luxury Cab">
+        <div class="cab-content">
+          <h3>Luxury (Camry)</h3>
+          <div class="features">Premium • Business Travel</div>
+          <div class="price">₹30/km | ₹7,000/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+      <div class="cab-card">
+        <img src="images/tempo.jpg" alt="Tempo Traveller">
+        <div class="cab-content">
+          <h3>Tempo Traveller</h3>
+          <div class="features">12–17 Seater • Group Travel</div>
+          <div class="price">₹25/km | ₹6,000/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cab-card">
+        <img src="images/luxury.jpg" alt="Luxury Cab">
+        <div class="cab-content">
+          <h3>Luxury (Camry)</h3>
+          <div class="features">Premium • Business Travel</div>
+          <div class="price">₹30/km | ₹7,000/day</div>
+          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
 </body>
-</html>
 
+</html>
