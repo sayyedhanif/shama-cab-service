@@ -3,299 +3,152 @@
 
 <head>
   <meta charset="UTF-8">
+  <title>Shama Cab Tours & Travels</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shama Cab Tours And Travels</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-    }
-
-    .site-header {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      color: white;
-    }
-
-    /* Desktop / Tablet */
-    .header-images {
-      display: flex;
-      width: 100%;
-      height: 210px;
-    }
-
-    .header-images img {
-      width: 50%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .header-images {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .header-images img {
-        width: 100%;
-        height: 180px;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .cab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .cab-card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .cab-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .cab-content {
-      padding: 15px;
-    }
-
-    .cab-content h3 {
-      margin: 0 0 8px;
-    }
-
-    .features {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #16a34a;
-      margin-bottom: 12px;
-    }
-
-    .whatsapp-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      background: #25D366;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .image-slider {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-    }
-
-    .image-slider img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: none;
-    }
-
-    .image-slider img.active {
-      display: block;
-    }
-
-    .image-slider .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 18px;
-      border-radius: 50%;
-    }
-
-    .image-slider .left {
-      left: 8px;
-    }
-
-    .image-slider .right {
-      right: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<script>
-  function nextImage(button) {
-    const slider = button.parentElement;
-    const slides = slider.querySelectorAll('.slide');
-    let index = [...slides].findIndex(slide => slide.classList.contains('active'));
-
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }
-
-  function prevImage(button) {
-    const slider = button.parentElement;
-    const slides = slider.querySelectorAll('.slide');
-    let index = [...slides].findIndex(slide => slide.classList.contains('active'));
-
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-  }
-</script>
 
 <body>
 
-  <header class="site-header">
-    <div class="header-images">
-      <img src="images/logo.jpg" alt="CityRide Cab Service">
-      <img src="images/logo2.jpg" alt="CityRide Cab Service">
-    </div>
-    <p>Rent a Car | Driver Included • Local • Outstation • Airport</p>
+  <div id="nav-placeholder"></div>
+
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">🚖 Shama Cab</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#cars">Cars</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <h2>Available Cab Options</h2>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Shama Cab Tours & Travels</h1>
+      <h2>Cab Service</h2>
+      <h4>Pickup & Drop • Round Trip • Airport Transfers</h4>
 
-    <div class="cab-grid">
-
-      <div class="cab-card">
-        <div class="image-slider">
-          <button class="nav left" onclick="prevImage(this)">&#10094;</button>
-
-          <img src="images/sedan/1.jpg" class="slide">
-          <img src="images/sedan/2.jpg" class="slide active">
-          <img src="images/sedan/3.jpg" class="slide">
-          <img src="images/sedan/4.jpg" class="slide">
-
-          <button class="nav right" onclick="nextImage(this)">&#10095;</button>
-        </div>
-
-        <div class="cab-content">
-          <h3>Sedan (Dzire / City)</h3>
-          <div class="features">AC • 4 Passengers • Driver Included</div>
-          <div class="price">₹12/km | ₹2,500/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">
-            Book on WhatsApp
-          </a>
-        </div>
+      <div class="hero-buttons">
+        <a href="tel:+919989083765" class="btn primary">📞 Call Now</a>
+        <a href="https://wa.me/919989083765" class="btn whatsapp">💬 WhatsApp</a>
       </div>
-
-      <div class="cab-card">
-        <div class="image-slider">
-          <button class="nav left" onclick="prevImage(this)">&#10094;</button>
-          <img src="images/sedan/1.jpg" class="slide">
-          <img src="images/sedan/2.jpg" class="slide">
-          <img src="images/sedan/3.jpg" class="slide">
-          <img src="images/sedan/4.jpg" class="slide active">
-          
-
-          <button class="nav right" onclick="nextImage(this)">&#10095;</button>
-        </div>
-
-        <div class="cab-content">
-          <h3>Sedan (Dzire / City)</h3>
-          <div class="features">AC • 4 Passengers • Driver Included</div>
-          <div class="price">₹12/km | ₹2,500/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">
-            Book on WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/suv.jpg" alt="SUV Cab">
-        <div class="cab-content">
-          <h3>SUV (Creta)</h3>
-          <div class="features">AC • 5 Passengers • Luggage Space</div>
-          <div class="price">₹16/km | ₹3,200/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/hatchback.jpg" alt="Hatchback Cab">
-        <div class="cab-content">
-          <h3>Hatchback (Swift)</h3>
-          <div class="features">AC • City Ride • Budget Friendly</div>
-          <div class="price">₹10/km | ₹2,000/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/innova.jpg" alt="Innova Cab">
-        <div class="cab-content">
-          <h3>Innova Crysta</h3>
-          <div class="features">AC • 7 Passengers • Outstation</div>
-          <div class="price">₹18/km | ₹3,800/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/tempo.jpg" alt="Tempo Traveller">
-        <div class="cab-content">
-          <h3>Tempo Traveller</h3>
-          <div class="features">12–17 Seater • Group Travel</div>
-          <div class="price">₹25/km | ₹6,000/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/luxury.jpg" alt="Luxury Cab">
-        <div class="cab-content">
-          <h3>Luxury (Camry)</h3>
-          <div class="features">Premium • Business Travel</div>
-          <div class="price">₹30/km | ₹7,000/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-      <div class="cab-card">
-        <img src="images/tempo.jpg" alt="Tempo Traveller">
-        <div class="cab-content">
-          <h3>Tempo Traveller</h3>
-          <div class="features">12–17 Seater • Group Travel</div>
-          <div class="price">₹25/km | ₹6,000/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="cab-card">
-        <img src="images/luxury.jpg" alt="Luxury Cab">
-        <div class="cab-content">
-          <h3>Luxury (Camry)</h3>
-          <div class="features">Premium • Business Travel</div>
-          <div class="price">₹30/km | ₹7,000/day</div>
-          <a class="whatsapp-btn" href="https://wa.me/919989083765">Book on WhatsApp</a>
-        </div>
-      </div>
-
     </div>
-  </div>
+  </section>
 
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="cards">
+      <div class="card">🚕 Pickup & Drop</div>
+      <div class="card">🛣️ Outstation Round Trip</div>
+      <div class="card">✈️ Airport Transfers</div>
+      <div class="card">🏢 Corporate Travel</div>
+    </div>
+  </section>
+
+  <!-- CARS -->
+  <section id="cars" class="section light-bg">
+    <h2 class="section-title">Our Cars</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="showCars('hatchback')">Hatchback</button>
+      <button class="tab" onclick="showCars('sedan')">Sedan</button>
+      <button class="tab" onclick="showCars('suv')">SUV</button>
+    </div>
+
+    <!-- Hatchback -->
+    <div class="slider active" id="hatchback">
+      <div class="slides">
+        <div class="car-card">
+          <img src="images/hatchback.jpg">
+          <h3>Swift</h3>
+          <p>₹10 / km</p>
+        </div>
+        <div class="car-card">
+          <img src="images/38335.jpg">
+          <h3>i10</h3>
+          <p>₹10 / km</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sedan -->
+    <div class="slider" id="sedan">
+      <div class="slides">
+        <div class="car-card">
+          <img src="images/sedan/2.jpg">
+          <h3>Dzire</h3>
+          <p>₹12 / km</p>
+        </div>
+        <div class="car-card">
+          <img src="images/sedan/1.jpg">
+          <h3>Etios</h3>
+          <p>₹12 / km</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUV -->
+    <div class="slider" id="suv">
+      <div class="slides">
+        <div class="car-card">
+          <img src="images/luxury.jpg">
+          <h3>Ertiga</h3>
+          <p>₹16 / km</p>
+        </div>
+        <div class="car-card">
+          <img src="images/innova.jpg">
+          <h3>Innova</h3>
+          <p>₹16 / km</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <h2 class="section-title">Estimate Your Fare</h2>
+
+    <div class="calculator">
+      <select id="carType">
+        <option value="10">Hatchback – ₹10/km</option>
+        <option value="12">Sedan – ₹12/km</option>
+        <option value="16">SUV – ₹16/km</option>
+      </select>
+
+      <input type="number" id="distance" placeholder="Distance in km">
+      <button onclick="calculatePrice()">Calculate</button>
+
+      <p id="priceResult"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section light-bg">
+    <h2 class="section-title">Contact Us</h2>
+
+    <form class="contact-form" onsubmit="sendWhatsApp(); return false;">
+      <input id="name" placeholder="Your Name" required>
+      <input id="pickup" placeholder="Pickup Location" required>
+      <input id="drop" placeholder="Drop Location" required>
+      <button type="submit">Send on WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 ShamaCab. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
