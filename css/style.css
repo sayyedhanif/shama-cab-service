@@ -38,6 +38,30 @@ body {
   text-decoration: none;
 }
 
+/* MOBILE NAVBAR FIX */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+  }
+
+  .navbar a {
+    margin: 8px 12px;   /* space between items */
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  /* If you have a menu container (recommended) */
+  .navbar .menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    row-gap: 10px;      /* vertical gap when wrapped */
+  }
+}
+
 /* HERO */
 .hero {
   height: 75vh;
